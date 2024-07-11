@@ -1,7 +1,7 @@
 import {Box, Flex, Link, Icon, transition} from '@chakra-ui/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faBars} from '@fortawesome/free-solid-svg-icons'
-import './Header.css'
+
 
 const Header = () => {
     const linkStyles = {
