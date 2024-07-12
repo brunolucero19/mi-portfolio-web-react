@@ -1,0 +1,13 @@
+.skill-flex {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px;
+}
+
+.slick-slide > div {
+    width: 100% !important;
+    display: block !important;
+}
+
+
