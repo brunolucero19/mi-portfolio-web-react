@@ -21,7 +21,7 @@ import {
 
 
 
-const ContactForm = () => {
+const ContactForm = ({contactButtonStyles}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const toast = useToast();
@@ -52,7 +52,7 @@ const ContactForm = () => {
 
     return (
         <>
-        <Button onClick={onOpen} p='10px' bgColor='brand.primary' fontWeight='700' borderRadius='7px' _hover={{ textDecoration: 'underline', backgroundColor: 'brand.primary' }}>CONTÁCTAME</Button>
+        <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
             <ModalOverlay/>
             <ModalContent p='10px' maxWidth='50%' borderRadius='7px' boxShadow="lg">
@@ -79,7 +79,7 @@ const ContactForm = () => {
                     <Button m='10px' bgColor='#fff' p='10px' borderRadius='7px' onClick={onClose} _hover={{color:'red' , bgColor:'#fff', border: '1px solid red'}}>
                         Cancelar
                     </Button>
-                    <Button type="submit" m='10px' color='black' bgColor='brand.primary' p='10px' borderRadius='7px' fontWeight='700' _hover={{bgColor:'brand.primary', border: '2px solid black'}}>ENVIAR</Button>
+                    <Button type="submit" m='10px' color='black' bgColor='brand.primary' p='10px' borderRadius='7px' fontWeight='700' _hover={{bgColor:'brand.primary', border: '2px solid black'}} _focus={{bgColor: 'brand.primary'}}>ENVIAR</Button>
                 </ModalFooter>
                 </form>
                 </ModalBody>
