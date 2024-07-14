@@ -52,7 +52,7 @@ const skillsData = [
     icon: faDatabase,
     title: 'Bases de Datos',
     description: 'Conocimientos del funcionamiento de una base de datos relacional, utilizando como motor de base de datos a PostgreSQL.',
-    backgroundColor: 'rgb(145, 158, 219)',
+    backgroundColor: 'rgb(176, 242, 172)',
   },
   {
     icon: faJava,
@@ -82,8 +82,8 @@ const Skills = () => {
   return (
     <Box as="section" id="myskills" p="60px 120px" textAlign="center">
       <Title text="Habilidades" subrayado="Mis"></Title>
-      <Text p="10px" fontSize="14px" color="#00000099" lineHeight="1.5" mb="25px">
-        Actualmente tengo conocimientos en las siguientes tecnologías. Mi objetivo es profundizar sobre las anteriores y descubrir nuevas.
+      <Text p="20px" fontSize="14px" color="#00000099" lineHeight="1.5" mb="25px">
+        Actualmente tengo conocimientos en las siguientes tecnologías. Mi objetivo es profundizar mis conocimientos en éstas y aprender nuevas tecnologías que me permitan seguir formándome como desarrollador.
       </Text>
       <Container width="100%">
         <Slider {...settings}>
