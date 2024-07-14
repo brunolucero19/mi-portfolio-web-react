@@ -18,7 +18,7 @@ const Footer = () => {
                     </Flex>
                 </Link>
             </Flex>
-            <Flex alignItems='center' justifyContent='space-evenly' p='40px'>
+            <Flex alignItems='center' justifyContent='center' gap='30px' wrap="wrap" p='40px'>
                 <Link href="#inicio" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Inicio</Link>
                 <Link href="#about" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Sobre Mí</Link>
                 <Link href="#myskills" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Habilidades</Link>
