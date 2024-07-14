@@ -50,6 +50,14 @@ const ContactForm = ({contactButtonStyles}) => {
         });
     };
 
+    const inputStyles = {
+        borderRadius: '7px',
+        border: '1px solid #ccc',
+        p: '5px',
+        _placeholder: {color: '#ccc'},
+        _focus: {borderColor: 'brand.primary', boxShadow: 'outline'}
+    }
+
     return (
         <>
         <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
@@ -62,18 +70,15 @@ const ContactForm = ({contactButtonStyles}) => {
                 <form onSubmit={handleSubmit(sendEmail)}>
                     <FormControl isRequired mb='10px'>
                         <FormLabel>Nombre</FormLabel>
-                        <Input type="text" {...register("name", { required: true })} placeholder='Ingrese su nombre' borderRadius='7px' border='1px solid #ccc' 
-                        p='5px' _placeholder={{ color: '#ccc' }} _focus={{ borderColor: 'blue.400', boxShadow: 'outline' }}/>
+                        <Input type="text" {...register("name", { required: true })} placeholder='Ingrese su nombre' sx={inputStyles}/>
                     </FormControl>
                     <FormControl isRequired mb='10px'>
                         <FormLabel>Correo Electrónico</FormLabel>
-                        <Input type="email" {...register("email", { required: true })} placeholder='Ingrese su correo electrónico' borderRadius='7px' border='1px solid #ccc' 
-                        p='5px' _placeholder={{ color: '#ccc' }} _focus={{ borderColor: 'blue.400', boxShadow: 'outline' }} />
+                        <Input type="email" {...register("email", { required: true })} placeholder='Ingrese su correo electrónico' sx={inputStyles} />
                     </FormControl>
                     <FormControl isRequired mb='20px'>
                         <FormLabel>Mensaje</FormLabel>
-                        <Textarea {...register("message", { required: true })} placeholder='Ingrese su mensaje' borderRadius='7px' border='1px solid #ccc' 
-                        p='5px' _placeholder={{ color: '#ccc' }} _focus={{ borderColor: 'blue.400', boxShadow: 'outline' }} />
+                        <Textarea {...register("message", { required: true })} placeholder='Ingrese su mensaje' sx={inputStyles} />
                     </FormControl>
                 <ModalFooter>
                     <Button m='10px' bgColor='#fff' p='10px' borderRadius='7px' onClick={onClose} _hover={{color:'red' , bgColor:'#fff', border: '1px solid red'}}>
