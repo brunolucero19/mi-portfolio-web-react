@@ -216,6 +216,7 @@ const Projects = () => {
                     position="relative"
                     _hover={{ transform: 'scale(1.1)', transition: 'transform 1s' }}
                     boxShadow="0 4px 8px rgba(0,0,0,0.3)"
+                    height={isMobile? '150px' : 'auto'}
                 >
                     <Box
                     position="absolute"
