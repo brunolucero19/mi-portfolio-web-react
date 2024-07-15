@@ -3,7 +3,7 @@ import { Box, Flex, Link, Image, Text } from "@chakra-ui/react"
 const Footer = () => {
 
     return(
-        <Box as="footer" p='40px 120px'>
+        <Box as="footer" p={{ base: '40px 50px', md: '40px 120px' }}>
             <Flex alignItems='center' justifyContent='center' gap='40px'>
                 <Link target="_blank" href="https://github.com/brunolucero19">
                     <Flex flexDirection='column' alignItems='center'>

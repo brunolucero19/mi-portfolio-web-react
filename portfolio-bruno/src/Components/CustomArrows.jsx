@@ -8,7 +8,7 @@ export const PrevArrow = ({ className, style, onClick }) => (
     onClick={onClick}
     position="absolute"
     top="50%"
-    left="-5%"
+    left={{ base: '-5%', xl: '0%', '2xl': '8%' }}
     transform="translateY(-50%)"
     zIndex="10"
     backgroundColor="rgba(253, 201, 100, 0.7)" // Fondo del botón
@@ -25,7 +25,7 @@ export const NextArrow = ({ className, style, onClick }) => (
     onClick={onClick}
     position="absolute"
     top="50%"
-    right="-5%"
+    right={{ base: '-5%', xl: '0%', '2xl': '8%' }}
     transform="translateY(-50%)"
     zIndex="10"
     backgroundColor="rgba(253, 201, 100, 0.7)" // Fondo del botón

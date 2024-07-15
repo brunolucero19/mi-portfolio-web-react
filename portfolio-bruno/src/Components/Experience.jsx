@@ -34,12 +34,12 @@ const Experience = () => {
     {alignItems:'center', justifyContent:'space-between', gap:'40px'}
 
     return (
-        <Box as="section" id="experiencia" textAlign='center' p='60px 120px' >
+        <Flex id="experiencia" textAlign='center' p={{ base: '60px 50px', md: '60px 120px' }} flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='Laboral' subrayado='Experiencia'></Title>
             <Text p='10px' fontSize='14px' lineHeight='1.5' color='rgba(0,0,0,0.6)' mb='40px'>
                 En ésta sección puedes ver mi experiencia laboral, destacando mis últimos trabajos.
             </Text>
-            <Flex sx={flexStyles}>
+            <Flex sx={flexStyles} w={{base:'100%', '2xl':'70%'}}>
                 <Box sx={boxStyles}>
                     <Text sx={textStyles}>Mes 0000-Mes 0000</Text>
                     <Heading as='h3' sx={h3Styles}>Puesto de trabajo</Heading>
@@ -59,8 +59,7 @@ const Experience = () => {
                     <Text sx={textStyles}>Descripción de las tareas realizadas y el puesto cubierto en éste trabajo.</Text>
                 </Box>
             </Flex>
-        </Box>
-
+        </Flex>
     )
 }
 

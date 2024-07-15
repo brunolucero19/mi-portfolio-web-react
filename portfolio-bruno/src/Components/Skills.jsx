@@ -80,7 +80,7 @@ const Skills = () => {
   }
 
   return (
-    <Box as="section" id="myskills" p="60px 120px" textAlign="center">
+    <Box as="section" id="myskills" p={{ base: '60px 50px', md: '60px 120px' }} textAlign="center">
       <Title text="Habilidades" subrayado="Mis"></Title>
       <Text p="20px" fontSize="14px" color="#00000099" lineHeight="1.5" mb="25px">
         Actualmente tengo conocimientos en las siguientes tecnologías. Mi objetivo es profundizar mis conocimientos en éstas y aprender nuevas tecnologías que me permitan seguir formándome como desarrollador.
@@ -97,7 +97,7 @@ const Skills = () => {
                   borderRadius="5px"
                   boxShadow="0 4px 8px rgba(0,0,0,0.1)"
                   textAlign="left"
-                  width={{ base: '100%', md: '45%' }}
+                  width={{ base: '80%', md: '45%', xl:'40%', '2xl': '35%' }}
                 >
                   <VStack align="start" height="100%">
                     <Icon as={FontAwesomeIcon} icon={skill.icon} fontSize='32px' />

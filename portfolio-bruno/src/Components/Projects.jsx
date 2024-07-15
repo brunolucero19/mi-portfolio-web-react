@@ -188,7 +188,7 @@ const Projects = () => {
     };
 
     return (
-        <Box as="section" id="proyectos" textAlign='center' p='0px 120px' display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
+        <Box as="section" id="proyectos" textAlign='center' p={{ base: '0px 50px', md: '0px 120px' }} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='destacados' subrayado='Proyectos'></Title>
             <Text p='10px' fontSize='14px' color='#00000099' lineHeight='1.5' mb='25px'>
                 En ésta sección puedes ver mis proyectos más destacados, puedes filtrarlos por proyectos de diseño UI o por proyectos basados en páginas web.
@@ -204,7 +204,7 @@ const Projects = () => {
                     Páginas Web
                 </Button>
             </Flex>
-            <SimpleGrid columns={columns} row={6} spacing='20px' height='80vh' width='80%'>
+            <SimpleGrid columns={columns} row={6} spacing='20px' height={{ base: '60vh', md: '70vh', '2xl':'80vh' }} width={{ base: '80%', '2xl': '70%' }}>
             {displayedProjects.map((project, index) => (
                 <Box
                     key={project.id}
@@ -216,7 +216,7 @@ const Projects = () => {
                     position="relative"
                     _hover={{ transform: 'scale(1.1)', transition: 'transform 1s' }}
                     boxShadow="0 4px 8px rgba(0,0,0,0.3)"
-                    height={isMobile? '150px' : 'auto'}
+                    height={isMobile? '130px' : 'auto'}
                 >
                     <Box
                     position="absolute"

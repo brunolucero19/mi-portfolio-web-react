@@ -11,7 +11,7 @@ import {HamburgerIcon} from '@chakra-ui/icons'
 const CustomMenu = () => {
     const iconStyles = {
         color: 'brand.primary',
-        fontSize: '48px',
+        fontSize: '40px',
         fontWeight: '700',
         bgColor: 'transparent',
         _hover: {bgColor: 'transparent'},
