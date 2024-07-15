@@ -63,7 +63,7 @@ const ContactForm = ({contactButtonStyles}) => {
         <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
             <ModalOverlay/>
-            <ModalContent p='10px' maxWidth='50%' borderRadius='7px' boxShadow="lg">
+            <ModalContent p='10px' maxWidth={{ base: '75%', md: '50%' }} borderRadius='7px' boxShadow="lg">
                 <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px'>Contáctame</ModalHeader>
                 <ModalCloseButton position="absolute" right="8px" top="10px" _hover={{color: 'red'}}/>
                 <ModalBody m='10px'> 
