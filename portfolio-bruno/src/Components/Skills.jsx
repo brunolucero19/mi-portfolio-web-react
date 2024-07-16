@@ -92,7 +92,7 @@ const Skills = () => {
               {group.map((skill, skillIndex) => (
                 <Box
                   key={skillIndex}
-                  p='30px'
+                  p={{ base: '20px', md: '30px'}}
                   bg={skill.backgroundColor}
                   borderRadius="5px"
                   boxShadow="0 4px 8px rgba(0,0,0,0.1)"

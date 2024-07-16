@@ -17,7 +17,10 @@ import {
     Textarea,
     useDisclosure,
     useToast,
-} from '@chakra-ui/react';
+    Box
+} from '@chakra-ui/react'
+
+import { CheckCircleIcon, WarningIcon } from '@chakra-ui/icons'
 
 
 
@@ -31,20 +34,47 @@ const ContactForm = ({contactButtonStyles}) => {
         emailjs.send('bruno_lucero19', 'plantilla_bruno_lucero', data, '_jQt_86rXPzX1MxQ9')
         .then((result) => {
         toast({
-            title: "Tu mensaje ha sido enviado exitosamente.",
-            status: "success",
-            duration: 2000,
-            isClosable: true,
+            render: () => (
+                <Box
+                    bg="green.500"
+                    color="white"
+                    p='20px' 
+                    borderRadius="5px"
+                    boxShadow="lg"
+                    width="100%"  
+                    height="auto" 
+                    display="flex"
+                    alignItems="center"
+                >
+                    <CheckCircleIcon boxSize='16px' mr='10px' />
+                    <span>Tu mensaje ha sido enviado exitosamente.</span>
+                </Box>
+            ),
+            duration: 1500,
             position: 'top',
+            
         });
         reset();
         onClose();
         }, (error) => {
         toast({
-            title: "Hubo un error al enviar tu mensaje. Inténtalo de nuevo más tarde.",
-            status: "error",
-            duration: 2000,
-            isClosable: true,
+            render: () => (
+                <Box
+                    bg="red.500"
+                    color="white"
+                    p='20px' 
+                    borderRadius="5px"
+                    boxShadow="lg"
+                    width="100%"  
+                    height="auto" 
+                    display="flex"
+                    alignItems="center"
+                >
+                    <WarningIcon boxSize='16px' mr='10px' />
+                    <span>Tu mensaje no pudo ser enviado. Intenta nuevamente más tarde.</span>
+                </Box>
+            ),
+            duration: 1500,
             position: 'top',
         });
         });
@@ -58,14 +88,27 @@ const ContactForm = ({contactButtonStyles}) => {
         _focus: {borderColor: 'brand.primary', boxShadow: 'outline'}
     }
 
+    const whatsappButtonStyles = {
+        position: 'absolute',
+        bottom: '20px',
+        left: '20px',
+        color: 'white',
+        bgColor: 'green.500',
+        p: '10px',
+        borderRadius: '7px',
+        fontWeight: '700',
+        _hover: { bgColor: 'green.600', border: '2px solid black' },
+        _focus: { bgColor: 'green.500' },
+    };
+
     return (
         <>
         <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
         <Modal isOpen={isOpen} onClose={onClose} isCentered>
             <ModalOverlay/>
-            <ModalContent p='10px' maxWidth={{ base: '75%', md: '50%' }} borderRadius='7px' boxShadow="lg">
+            <ModalContent p='10px' maxWidth={{ base: '80%', md: '50%' }} borderRadius='7px' boxShadow="lg">
                 <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px'>Contáctame</ModalHeader>
-                <ModalCloseButton position="absolute" right="8px" top="10px" _hover={{color: 'red'}}/>
+                <ModalCloseButton position="absolute" right="20px" top="20px" _hover={{color: 'red'}}/>
                 <ModalBody m='10px'> 
                 <form onSubmit={handleSubmit(sendEmail)}>
                     <FormControl isRequired mb='10px'>
@@ -76,18 +119,18 @@ const ContactForm = ({contactButtonStyles}) => {
                         <FormLabel>Correo Electrónico</FormLabel>
                         <Input type="email" {...register("email", { required: true })} placeholder='Ingrese su correo electrónico' sx={inputStyles} />
                     </FormControl>
-                    <FormControl isRequired mb='20px'>
+                    <FormControl isRequired mb='30px'>
                         <FormLabel>Mensaje</FormLabel>
                         <Textarea {...register("message", { required: true })} placeholder='Ingrese su mensaje' sx={inputStyles} />
                     </FormControl>
                 <ModalFooter>
-                    <Button m='10px' bgColor='#fff' p='10px' borderRadius='7px' onClick={onClose} _hover={{color:'red' , bgColor:'#fff', border: '1px solid red'}}>
-                        Cancelar
-                    </Button>
-                    <Button type="submit" m='10px' color='black' bgColor='brand.primary' p='10px' borderRadius='7px' fontWeight='700' _hover={{bgColor:'brand.primary', border: '2px solid black'}} _focus={{bgColor: 'brand.primary'}}>ENVIAR</Button>
+                    <Button type="submit" color='black' bgColor='brand.primary' p='10px' borderRadius='7px' fontWeight='700' _hover={{bgColor:'brand.primary', border: '2px solid black'}} _focus={{bgColor: 'brand.primary'}}>ENVIAR</Button>
                 </ModalFooter>
                 </form>
                 </ModalBody>
+                <Button as="a" href="https://wa.me/+542612493532" target="_blank" rel="noopener noreferrer" sx={whatsappButtonStyles}>
+                    Ir a WhatsApp
+                </Button>
             </ModalContent>
         </Modal>
         </>

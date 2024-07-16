@@ -1,4 +1,4 @@
-import {Box, Flex, Link} from '@chakra-ui/react'
+import {Box, Flex, Link, textDecoration} from '@chakra-ui/react'
 import CustomMenu from './CustomMenu'
 
 const Header = () => {
@@ -8,8 +8,8 @@ const Header = () => {
         fontSize: '16px',
         padding: '10px',
         textDecoration: 'none', 
-        transition : 'all 1s',
-        _hover: { backgroundColor: '#fdc964' }  // Estilo de hover
+        transition : 'all 0.5s',
+        _hover: { backgroundColor: '#fdc964', textDecoration: 'underline' }  // Estilo de hover
     };
 
 
