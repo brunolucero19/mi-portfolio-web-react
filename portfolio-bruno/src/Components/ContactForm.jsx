@@ -1,5 +1,3 @@
-
-import React from 'react'
 import { useForm } from 'react-hook-form'
 import emailjs from 'emailjs-com'
 import {
@@ -21,18 +19,19 @@ import {
 } from '@chakra-ui/react'
 
 import { CheckCircleIcon, WarningIcon } from '@chakra-ui/icons'
-
+import PropTypes from 'prop-types'
 
 
 const ContactForm = ({contactButtonStyles}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const toast = useToast();
-
+    console.log(errors)
     
     const sendEmail = (data) => {
         emailjs.send('bruno_lucero19', 'plantilla_bruno_lucero', data, '_jQt_86rXPzX1MxQ9')
         .then((result) => {
+        console.log("Resultado:" + result)
         toast({
             render: () => (
                 <Box
@@ -57,6 +56,7 @@ const ContactForm = ({contactButtonStyles}) => {
         reset();
         onClose();
         }, (error) => {
+        console.log("Error" + error)
         toast({
             render: () => (
                 <Box
@@ -135,6 +135,11 @@ const ContactForm = ({contactButtonStyles}) => {
         </Modal>
         </>
     );
+};
+
+// Definir las validaciones de las props
+ContactForm.propTypes = {
+    contactButtonStyles: PropTypes.object
 };
 
 export default ContactForm;
