@@ -114,6 +114,7 @@ const ContactForm = ({contactButtonStyles}) => {
                     <FormControl isRequired mb='10px'>
                         <FormLabel>Nombre</FormLabel>
                         <Input type="text" {...register("name", { required: true })} placeholder='Ingrese su nombre' sx={inputStyles}/>
+                        {errors.name && <span>Éste campo es requerido.</span>}
                     </FormControl>
                     <FormControl isRequired mb='10px'>
                         <FormLabel>Correo Electrónico</FormLabel>
@@ -137,7 +138,7 @@ const ContactForm = ({contactButtonStyles}) => {
     );
 };
 
-// Definir las validaciones de las props
+// Definir el tipo de las props
 ContactForm.propTypes = {
     contactButtonStyles: PropTypes.object
 };

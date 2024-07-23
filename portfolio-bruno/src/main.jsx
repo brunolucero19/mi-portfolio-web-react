@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import {ChakraProvider} from '@chakra-ui/react'
 import theme from './theme.js'
-import "slick-carousel/slick/slick.css"
-import "slick-carousel/slick/slick-theme.css"
 import AboutMe from './Components/AboutMe'
 import Header from './Components/Header'
 import Hero from './Components/Hero'
