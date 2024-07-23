@@ -1,4 +1,4 @@
-import {Box, Flex, Link, textDecoration} from '@chakra-ui/react'
+import {Box, Flex, Link} from '@chakra-ui/react'
 import CustomMenu from './CustomMenu'
 
 const Header = () => {
