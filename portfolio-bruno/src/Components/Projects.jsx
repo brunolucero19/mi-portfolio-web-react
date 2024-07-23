@@ -188,7 +188,7 @@ const Projects = () => {
     };
 
     return (
-        <Box as="section" id="proyectos" textAlign='center' p={{ base: '0px 50px', md: '0px 120px' }} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
+        <Box as="section" id="proyectos" textAlign='center' p={{ base: '0px 40px', md: '0px 120px' }} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='destacados' subrayado='Proyectos'></Title>
             <Text p='10px' fontSize='14px' color='#00000099' lineHeight='1.5' mb='25px'>
                 En ésta sección puedes ver mis proyectos más destacados, puedes filtrarlos por proyectos de diseño UI o por proyectos basados en páginas web.

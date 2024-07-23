@@ -99,7 +99,7 @@ const ContactForm = ({contactButtonStyles}) => {
         color: 'red',
         fontSize: '14px',
         height: '25px',
-        width: '100%' // Espacio reservado para el mensaje de error
+        width: '100%' 
     };
 
     const whatsappButtonStyles = {
