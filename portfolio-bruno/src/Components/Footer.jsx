@@ -19,11 +19,11 @@ const Footer = () => {
                 </Link>
             </Flex>
             <Flex alignItems='center' justifyContent='center' gap='30px' wrap="wrap" p='40px'>
-                <Link href="#inicio" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Inicio</Link>
-                <Link href="#about" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Sobre Mí</Link>
-                <Link href="#myskills" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Habilidades</Link>
-                <Link href="#proyectos" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Proyectos</Link>
-                <Link href="#experiencia" _hover={{color:'brand.primary', textDecoration:'underline', fontWeight:'600'}}>Experiencia</Link>
+                <Link href="#inicio" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Inicio</Link>
+                <Link href="#about" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Sobre Mí</Link>
+                <Link href="#myskills" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Habilidades</Link>
+                <Link href="#proyectos" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Proyectos</Link>
+                <Link href="#experiencia" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Experiencia</Link>
             </Flex>
 
         </Box>

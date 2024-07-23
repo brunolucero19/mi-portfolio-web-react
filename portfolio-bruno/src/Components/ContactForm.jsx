@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form'
+
 import emailjs from 'emailjs-com'
 import {
     Button,
@@ -20,16 +20,21 @@ import {
 
 import { CheckCircleIcon, WarningIcon } from '@chakra-ui/icons'
 import PropTypes from 'prop-types'
-
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup'
 
 const ContactForm = ({contactButtonStyles}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const toast = useToast();
-    console.log(errors)
     
-    const sendEmail = (data) => {
-        emailjs.send('bruno_lucero19', 'plantilla_bruno_lucero', data, '_jQt_86rXPzX1MxQ9')
+    const validationSchema = Yup.object({
+        name: Yup.string().required('Éste campo es requerido.'),
+        email: Yup.string().email('Correo electrónico inválido').required('Éste campo es requerido.'),
+        message: Yup.string().required('Éste campo es requerido.')
+    });
+
+    const sendEmail = (values, {resetForm}) => {
+        emailjs.send('bruno_lucero19', 'plantilla_bruno_lucero', values, '_jQt_86rXPzX1MxQ9')
         .then((result) => {
         console.log("Resultado:" + result)
         toast({
@@ -53,7 +58,7 @@ const ContactForm = ({contactButtonStyles}) => {
             position: 'top',
             
         });
-        reset();
+        resetForm();
         onClose();
         }, (error) => {
         console.log("Error" + error)
@@ -84,6 +89,8 @@ const ContactForm = ({contactButtonStyles}) => {
         borderRadius: '7px',
         border: '1px solid #ccc',
         p: '5px',
+        mb: '5px',
+        mt: '5px',
         _placeholder: {color: '#ccc'},
         _focus: {borderColor: 'brand.primary', boxShadow: 'outline'}
     }
@@ -103,37 +110,74 @@ const ContactForm = ({contactButtonStyles}) => {
 
     return (
         <>
-        <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
-        <Modal isOpen={isOpen} onClose={onClose} isCentered>
-            <ModalOverlay/>
-            <ModalContent p='10px' maxWidth={{ base: '80%', md: '50%' }} borderRadius='7px' boxShadow="lg">
-                <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px'>Contáctame</ModalHeader>
-                <ModalCloseButton position="absolute" right="20px" top="20px" _hover={{color: 'red'}}/>
-                <ModalBody m='10px'> 
-                <form onSubmit={handleSubmit(sendEmail)}>
-                    <FormControl isRequired mb='10px'>
-                        <FormLabel>Nombre</FormLabel>
-                        <Input type="text" {...register("name", { required: true })} placeholder='Ingrese su nombre' sx={inputStyles}/>
-                        {errors.name && <span>Éste campo es requerido.</span>}
-                    </FormControl>
-                    <FormControl isRequired mb='10px'>
-                        <FormLabel>Correo Electrónico</FormLabel>
-                        <Input type="email" {...register("email", { required: true })} placeholder='Ingrese su correo electrónico' sx={inputStyles} />
-                    </FormControl>
-                    <FormControl isRequired mb='30px'>
-                        <FormLabel>Mensaje</FormLabel>
-                        <Textarea {...register("message", { required: true })} placeholder='Ingrese su mensaje' sx={inputStyles} />
-                    </FormControl>
-                <ModalFooter>
-                    <Button type="submit" color='black' bgColor='brand.primary' p='10px' borderRadius='7px' fontWeight='700' _hover={{bgColor:'brand.primary', border: '2px solid black'}} _focus={{bgColor: 'brand.primary'}}>ENVIAR</Button>
-                </ModalFooter>
-                </form>
-                </ModalBody>
-                <Button as="a" href="https://wa.me/+542612493532" target="_blank" rel="noopener noreferrer" sx={whatsappButtonStyles}>
-                    Ir a WhatsApp
-                </Button>
-            </ModalContent>
-        </Modal>
+            <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
+            <Modal isOpen={isOpen} onClose={onClose} isCentered>
+                <ModalOverlay />
+                <ModalContent p='10px' maxWidth={{ base: '80%', md: '50%' }} borderRadius='7px' boxShadow="lg">
+                    <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px'>Contáctame</ModalHeader>
+                    <ModalCloseButton position="absolute" right="20px" top="20px" _hover={{ color: 'red' }} />
+                    <ModalBody m='10px'>
+                        <Formik
+                            initialValues={{ name: '', email: '', message: '' }}
+                            validationSchema={validationSchema}
+                            onSubmit={sendEmail}
+                        >
+                            {({ errors, touched}) => (
+                                <Form>
+                                    <FormControl isInvalid={!!errors.name && touched.name} mb='20px'>
+                                        <FormLabel>Nombre</FormLabel>
+                                        <Field
+                                            name="name"
+                                            as={Input}
+                                            placeholder='Ingrese su nombre'
+                                            sx={inputStyles}
+                                        />
+                                        <ErrorMessage name="name" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                    </FormControl>
+                                    <FormControl isInvalid={!!errors.email && touched.email} mb='20px'>
+                                        <FormLabel>Correo Electrónico</FormLabel>
+                                        <Field
+                                            name="email"
+                                            as={Input}
+                                            type="email"
+                                            placeholder='Ingrese su correo electrónico'
+                                            sx={inputStyles}
+                                        />
+                                        <ErrorMessage name="email" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                    </FormControl>
+                                    <FormControl isInvalid={!!errors.message && touched.message} mb='50px'>
+                                        <FormLabel>Mensaje</FormLabel>
+                                        <Field
+                                            name="message"
+                                            as={Textarea}
+                                            placeholder='Ingrese su mensaje'
+                                            sx={inputStyles}
+                                        />
+                                        <ErrorMessage name="message" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                    </FormControl>
+                                    <ModalFooter>
+                                        <Button
+                                            type="submit"
+                                            color='black'
+                                            bgColor='brand.primary'
+                                            p='10px'
+                                            borderRadius='7px'
+                                            fontWeight='700'
+                                            _hover={{ bgColor: 'brand.primary', border: '2px solid black' }}
+                                            _focus={{ bgColor: 'brand.primary' }}
+                                        >
+                                            ENVIAR
+                                        </Button>
+                                    </ModalFooter>
+                                </Form>
+                            )}
+                        </Formik>
+                    </ModalBody>
+                    <Button as="a" href="https://wa.me/+542612493532" target="_blank" rel="noopener noreferrer" sx={whatsappButtonStyles}>
+                        Ir a WhatsApp
+                    </Button>
+                </ModalContent>
+            </Modal>
         </>
     );
 };
