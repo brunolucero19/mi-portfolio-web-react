@@ -1,4 +1,4 @@
-import { Box, Flex, Text, Heading, Link, Image } from '@chakra-ui/react'
+import { Box, Flex, Text, Heading,  Image } from '@chakra-ui/react'
 import ContactForm from './ContactForm'
 
 const Hero = () => {

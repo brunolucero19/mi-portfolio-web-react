@@ -114,12 +114,12 @@ const Projects = () => {
             titles: {
                 'Todos': 'Mi Portfolio Web hecho con HTML y CSS',
                 'Diseño UI': 'Diseño de servicios de una agencia de viajes',
-                'Páginas Web': 'En Proceso',
+                'Páginas Web': 'Ta Te Ti',
             },
             links: {
                 'Todos': 'https://github.com/brunolucero19/mi-portfolio-web-html-y-css',
                 'Diseño UI': 'https://github.com/brunolucero19/image-based-web-project-services',
-                'Páginas Web': '#',
+                'Páginas Web': 'https://github.com/brunolucero19/ta-te-ti',
             },
             images: {
                 'Todos': 'url(../img/gallery5.jpg)',
@@ -130,12 +130,12 @@ const Projects = () => {
         {
             id: 7,
             titles: {
-                'Todos': 'Práctica de ejercicios de JavaScript',
+                'Todos': 'Ta Te Ti',
                 'Diseño UI': 'En Proceso',
                 'Páginas Web': 'En Proceso',
             },
             links: {
-                'Todos': 'https://github.com/brunolucero19/ejercicios-javascript-part2',
+                'Todos': 'https://github.com/brunolucero19/ta-te-ti',
                 'Diseño UI': '#',
                 'Páginas Web': '#',
             },
