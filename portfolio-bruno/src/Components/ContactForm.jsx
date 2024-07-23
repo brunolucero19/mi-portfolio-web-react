@@ -95,6 +95,13 @@ const ContactForm = ({contactButtonStyles}) => {
         _focus: {borderColor: 'brand.primary', boxShadow: 'outline'}
     }
 
+    const errorStyles = {
+        color: 'red',
+        fontSize: '14px',
+        height: '25px',
+        width: '100%' // Espacio reservado para el mensaje de error
+    };
+
     const whatsappButtonStyles = {
         position: 'absolute',
         bottom: '20px',
@@ -114,7 +121,7 @@ const ContactForm = ({contactButtonStyles}) => {
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
                 <ModalOverlay />
                 <ModalContent p='10px' maxWidth={{ base: '80%', md: '50%' }} borderRadius='7px' boxShadow="lg">
-                    <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px'>Contáctame</ModalHeader>
+                    <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px' mb='10px'>Contáctame</ModalHeader>
                     <ModalCloseButton position="absolute" right="20px" top="20px" _hover={{ color: 'red' }} />
                     <ModalBody m='10px'>
                         <Formik
@@ -124,7 +131,7 @@ const ContactForm = ({contactButtonStyles}) => {
                         >
                             {({ errors, touched}) => (
                                 <Form>
-                                    <FormControl isInvalid={!!errors.name && touched.name} mb='20px'>
+                                    <FormControl isInvalid={!!errors.name && touched.name} >
                                         <FormLabel>Nombre</FormLabel>
                                         <Field
                                             name="name"
@@ -132,9 +139,11 @@ const ContactForm = ({contactButtonStyles}) => {
                                             placeholder='Ingrese su nombre'
                                             sx={inputStyles}
                                         />
-                                        <ErrorMessage name="name" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                        {errors.name ? <ErrorMessage name="name" component="div" style={errorStyles} /> : <Box h='25px' w='100%'></Box> 
+                                        }
+                                        
                                     </FormControl>
-                                    <FormControl isInvalid={!!errors.email && touched.email} mb='20px'>
+                                    <FormControl isInvalid={!!errors.email && touched.email}>
                                         <FormLabel>Correo Electrónico</FormLabel>
                                         <Field
                                             name="email"
@@ -143,9 +152,10 @@ const ContactForm = ({contactButtonStyles}) => {
                                             placeholder='Ingrese su correo electrónico'
                                             sx={inputStyles}
                                         />
-                                        <ErrorMessage name="email" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                        {errors.email ? <ErrorMessage name="email" component="div" style={errorStyles} /> : <Box h='25px' w='100%'></Box> 
+                                        }
                                     </FormControl>
-                                    <FormControl isInvalid={!!errors.message && touched.message} mb='50px'>
+                                    <FormControl isInvalid={!!errors.message && touched.message} mb='30px'>
                                         <FormLabel>Mensaje</FormLabel>
                                         <Field
                                             name="message"
@@ -153,7 +163,8 @@ const ContactForm = ({contactButtonStyles}) => {
                                             placeholder='Ingrese su mensaje'
                                             sx={inputStyles}
                                         />
-                                        <ErrorMessage name="message" component="div" style={{ color: 'red', fontSize: '14px'}} />
+                                        {errors.message ? <ErrorMessage name="message" component="div" style={errorStyles} /> : <Box h='25px' w='100%'></Box> 
+                                        }
                                     </FormControl>
                                     <ModalFooter>
                                         <Button
@@ -163,7 +174,8 @@ const ContactForm = ({contactButtonStyles}) => {
                                             p='10px'
                                             borderRadius='7px'
                                             fontWeight='700'
-                                            _hover={{ bgColor: 'brand.primary', border: '2px solid black' }}
+                                            border= '2px solid black' 
+                                            _hover={{ textDecoration: 'underline'}}
                                             _focus={{ bgColor: 'brand.primary' }}
                                         >
                                             ENVIAR
