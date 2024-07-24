@@ -4,10 +4,11 @@ import {
     MenuList,
     MenuItem,
     IconButton,
-    Box
+    Box,
+    useDisclosure
 } from '@chakra-ui/react'
 import {HamburgerIcon} from '@chakra-ui/icons'
-import { Link as ScrollLink} from 'react-scroll'
+import {scroller} from 'react-scroll'
 
 const CustomMenu = () => {
     const iconStyles = {
@@ -25,20 +26,17 @@ const CustomMenu = () => {
     }
 
     const menuItemStyles = {
-        padding: '8px',
-        _hover: {bgColor: 'transparent'},
+        padding: '13px',
+        _hover: {bgColor: 'transparent', color: 'brand.primary', fontWeight:'500'},
         _focus: { bgColor: 'transparent' },
         border: "1px solid",
         borderColor: 'brand.primary',
+        fontWeight: '500'
     }
 
     const linkStyles = {
-        padding: '5px',
-        display: 'block',
         width: '100%',
         textAlign: 'center',
-        _hover: {color: 'brand.primary', fontWeight: '500'},
-        fontWeight: '500'
     }
 
     const links = [
@@ -50,20 +48,31 @@ const CustomMenu = () => {
         { to: 'contacto', label: 'CONTACTO' },
     ];
 
+    const {isOpen, onOpen, onClose} = useDisclosure()
+
+    const handleLinkClick = (to) => {
+        scroller.scrollTo(to, {
+            duration: 700,
+            delay: 0,
+            smooth: true,
+            offset: -50
+        })
+        onClose()
+    }
+
     return(
-        <Menu>
+        <Menu> 
             <MenuButton
                 as={IconButton}
                 icon={<HamburgerIcon />}
                 sx={iconStyles}
+                onClick={isOpen? onClose : onOpen}
             />
             <MenuList sx={menuListStyles}>
                 {links.map((link,index) => (
-                    <MenuItem sx={menuItemStyles} key={index}>
+                    <MenuItem sx={menuItemStyles} key={index} onClick={() => handleLinkClick(link.to)}>
                         <Box sx={linkStyles}>
-                            <ScrollLink to={link.to} smooth={true} duration={700}>
-                                {link.label}
-                            </ScrollLink>
+                            {link.label}
                         </Box>
                     </MenuItem>
                 ))}

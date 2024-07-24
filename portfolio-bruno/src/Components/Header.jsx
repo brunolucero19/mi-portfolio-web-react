@@ -1,8 +1,10 @@
 import {Box, Flex} from '@chakra-ui/react'
 import {Link as ScrollLink} from 'react-scroll'
 import CustomMenu from './CustomMenu'
+import PropTypes from 'prop-types'
 
-const Header = () => {
+
+const Header = ({isModalOpen}) => {
     const linkStyles = {
         fontWeight: '500',
         borderRadius: '10px',
@@ -23,8 +25,17 @@ const Header = () => {
         { to: 'contacto', label: 'Contacto' },
     ];
 
+    const headerStyles = {
+        p: { base: '0px 20px', md: '0px 40px' },
+        position: isModalOpen ? 'static' : { base: 'fixed', md: 'static' }, 
+        top: isModalOpen ? 'auto' : { base: '0', md: 'auto' }, 
+        width: '100%',
+        zIndex: isModalOpen ? 'auto' : { base: '1000', md: 'auto' },
+        bg: isModalOpen ? 'transparent' : 'white'
+    }
+
     return(
-        <Box as='header' p="0px 40px">
+        <Box as='header' sx={headerStyles}>
             <Flex as='nav' justify='space-between' align='center'>
                 <Box as='p' color="brand.primary" fontSize='50px' fontWeight='700'>B.</Box>
                 <Flex gap='10px' display={{ base: 'none', md: 'flex' }}>
@@ -45,5 +56,10 @@ const Header = () => {
 
     )
 }
+
+Header.propTypes ={
+    isModalOpen: PropTypes.bool
+}
+
 
 export default Header

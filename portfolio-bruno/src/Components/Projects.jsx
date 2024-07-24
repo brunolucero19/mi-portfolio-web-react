@@ -9,6 +9,7 @@ const Projects = () => {
         fontSize: '16px',
         padding: '10px 16px',
         transition: 'color 0.3s',
+        fontWeight: '600',
         _hover: {color: 'brand.primary', fontWeight: '600'},
         _focus: {bgColor: 'transparent' }
     }

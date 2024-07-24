@@ -23,10 +23,20 @@ import PropTypes from 'prop-types'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 
-const ContactForm = ({contactButtonStyles}) => {
+const ContactForm = ({contactButtonStyles, onModalOpen, onModalClose}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const toast = useToast();
     
+    const openModal = () => {
+        onModalOpen(); // Notifico al padre para que actualice al header
+        onOpen();
+    };
+
+    const closeModal = () => {
+        onModalClose(); // Notifico al padre para que actualice al header
+        onClose();
+    };
+
     const validationSchema = Yup.object({
         name: Yup.string().required('Éste campo es requerido.'),
         email: Yup.string().email('Correo electrónico inválido').required('Éste campo es requerido.'),
@@ -117,8 +127,8 @@ const ContactForm = ({contactButtonStyles}) => {
 
     return (
         <>
-            <Button onClick={onOpen} sx={contactButtonStyles}>CONTÁCTAME</Button>
-            <Modal isOpen={isOpen} onClose={onClose} isCentered>
+            <Button onClick={openModal} sx={contactButtonStyles}>CONTÁCTAME</Button>
+            <Modal isOpen={isOpen} onClose={closeModal} isCentered>
                 <ModalOverlay />
                 <ModalContent p='10px' maxWidth={{ base: '80%', md: '50%' }} borderRadius='7px' boxShadow="lg">
                     <ModalHeader fontSize="xl" fontWeight="700" mt='30px' ml='10px' mb='10px'>Contáctame</ModalHeader>
@@ -196,7 +206,9 @@ const ContactForm = ({contactButtonStyles}) => {
 
 // Definir el tipo de las props
 ContactForm.propTypes = {
-    contactButtonStyles: PropTypes.object
+    contactButtonStyles: PropTypes.object,
+    onModalOpen: PropTypes.func,
+    onModalClose: PropTypes.func
 };
 
 export default ContactForm;
