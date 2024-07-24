@@ -3,10 +3,11 @@ import {
     MenuButton,
     MenuList,
     MenuItem,
-    Link, 
-    IconButton
+    IconButton,
+    Box
 } from '@chakra-ui/react'
 import {HamburgerIcon} from '@chakra-ui/icons'
+import { Link as ScrollLink} from 'react-scroll'
 
 const CustomMenu = () => {
     const iconStyles = {
@@ -20,15 +21,15 @@ const CustomMenu = () => {
 
     const menuListStyles = {
         border: 'none',
-        padding: '10px',
+        padding: '0px',
     }
 
     const menuItemStyles = {
-        padding: '5px',
+        padding: '8px',
         _hover: {bgColor: 'transparent'},
         _focus: { bgColor: 'transparent' },
         border: "1px solid",
-        borderColor: 'brand.primary'
+        borderColor: 'brand.primary',
     }
 
     const linkStyles = {
@@ -37,7 +38,17 @@ const CustomMenu = () => {
         width: '100%',
         textAlign: 'center',
         _hover: {color: 'brand.primary', fontWeight: '500'},
+        fontWeight: '500'
     }
+
+    const links = [
+        { to: 'inicio', label: 'INICIO' },
+        { to: 'about', label: 'SOBRE MÍ' },
+        { to: 'myskills', label: 'HABILIDADES' },
+        { to: 'proyectos', label: 'PROYECTOS' },
+        { to: 'experiencia', label: 'EXPERIENCIA' },
+        { to: 'contacto', label: 'CONTACTO' },
+    ];
 
     return(
         <Menu>
@@ -47,24 +58,15 @@ const CustomMenu = () => {
                 sx={iconStyles}
             />
             <MenuList sx={menuListStyles}>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#inicio' sx={linkStyles}>INICIO</Link>
-                </MenuItem>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#about' sx={linkStyles}>SOBRE MÍ</Link>
-                </MenuItem>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#myskills' sx={linkStyles}>HABILIDADES</Link>
-                </MenuItem>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#proyectos' sx={linkStyles}>PROYECTOS</Link>
-                </MenuItem>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#experiencia' sx={linkStyles}>EXPERIENCIA</Link>
-                </MenuItem>
-                <MenuItem sx={menuItemStyles}>
-                    <Link href='#contacto' sx={linkStyles}>CONTACTO</Link>
-                </MenuItem>
+                {links.map((link,index) => (
+                    <MenuItem sx={menuItemStyles} key={index}>
+                        <Box sx={linkStyles}>
+                            <ScrollLink to={link.to} smooth={true} duration={700}>
+                                {link.label}
+                            </ScrollLink>
+                        </Box>
+                    </MenuItem>
+                ))}
             </MenuList>
         </Menu>
     )

@@ -1,6 +1,15 @@
 import { Box, Flex, Link, Image, Text } from "@chakra-ui/react"
+import {Link as ScrollLink} from 'react-scroll'
 
 const Footer = () => {
+
+    const links = [
+        { to: 'inicio', label: 'Inicio' },
+        { to: 'about', label: 'Sobre Mí' },
+        { to: 'myskills', label: 'Habilidades' },
+        { to: 'proyectos', label: 'Proyectos' },
+        { to: 'experiencia', label: 'Experiencia' },
+    ]
 
     return(
         <Box as="footer" p={{ base: '40px 30px', md: '40px 120px' }}>
@@ -19,11 +28,13 @@ const Footer = () => {
                 </Link>
             </Flex>
             <Flex alignItems='center' justifyContent='center' gap='30px' wrap="wrap" p='40px'>
-                <Link href="#inicio" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Inicio</Link>
-                <Link href="#about" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Sobre Mí</Link>
-                <Link href="#myskills" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Habilidades</Link>
-                <Link href="#proyectos" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Proyectos</Link>
-                <Link href="#experiencia" _hover={{color:'brand.primary', textDecoration:'underline'}} fontWeight='600'>Experiencia</Link>
+                {links.map((link,index) => (
+                    <Box key={index} sx={{_hover: {color: 'brand.primary', textDecoration:'underline', cursor:'pointer'}, fontWeight:'600'}}>
+                    <ScrollLink to={link.to} smooth={true} duration={700}>
+                        {link.label}
+                    </ScrollLink>
+                    </Box>
+                ))}
             </Flex>
 
         </Box>

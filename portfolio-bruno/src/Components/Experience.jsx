@@ -34,7 +34,7 @@ const Experience = () => {
     {alignItems:'center', justifyContent:'space-between', gap:'40px'}
 
     return (
-        <Flex id="experiencia" textAlign='center' p={{ base: '60px 40px', md: '60px 120px' }} flexDirection='column' alignItems='center' justifyContent='center'>
+        <Flex id="experiencia" textAlign='center' p={{ base: '40px 40px', md: '40px 120px' }} flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='Laboral' subrayado='Experiencia'></Title>
             <Text p='10px' fontSize='14px' lineHeight='1.5' color='rgba(0,0,0,0.6)' mb='40px'>
                 En ésta sección puedes ver mi experiencia laboral, destacando mis últimos trabajos.

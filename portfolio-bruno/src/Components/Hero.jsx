@@ -12,7 +12,7 @@ const Hero = () => {
     }
 
     return (
-        <Flex id="inicio" as="section" direction={{ base: 'column', md: 'row' }} alignItems="center" justifyContent={{ base: 'center', md: 'space-evenly' }} p={{ base: '0 30px', md: '40px' }} height={{ base: '50vh', md: '75vh' }} >
+        <Flex id="inicio" as="section" direction={{ base: 'column', md: 'row' }} alignItems="center" justifyContent={{ base: 'center', md: 'space-evenly' }} p={{ base: '40px 30px', md: '40px' }} height={{ base: '50vh', md: '75vh' }} >
             <Box maxWidth={{ base: '100%', md: '50%' }} textAlign={{ base: 'center', md: 'left' }} >
                 <Text fontSize='16px' color='gray'>Hola</Text>
                 <Heading as="h1" fontSize={{ base: '32px', md: '40px' }} fontWeight='700' m='10px 0'>Soy Bruno</Heading>

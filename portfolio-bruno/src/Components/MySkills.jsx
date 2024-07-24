@@ -64,7 +64,7 @@ const MySkills = () => {
         ];
     
         return (
-            <Box as="section" id="myskills" p={{ base: '60px 40px', md: '60px 120px' }} textAlign="center">
+            <Box as="section" id="myskills" p={{ base: '40px 40px', md: '40px 120px' }} textAlign="center">
                 <Title text="Habilidades" subrayado="Mis"></Title>
                 <Text p="20px" fontSize="14px" color="#00000099" lineHeight="1.5" mb="25px">
                     Actualmente tengo conocimientos en las siguientes tecnologías. Mi objetivo es profundizar mis conocimientos en éstas y aprender nuevas tecnologías que me permitan seguir formándome como desarrollador.

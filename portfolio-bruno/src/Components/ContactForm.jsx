@@ -111,7 +111,7 @@ const ContactForm = ({contactButtonStyles}) => {
         p: '10px',
         borderRadius: '7px',
         fontWeight: '700',
-        _hover: { bgColor: 'green.600', border: '2px solid black' },
+        _hover: { bgColor: 'green.600' },
         _focus: { bgColor: 'green.500' },
     };
 
