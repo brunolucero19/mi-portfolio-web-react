@@ -55,7 +55,7 @@ const CustomMenu = () => {
             duration: 700,
             delay: 0,
             smooth: true,
-            offset: -50
+            offset: -45
         })
         onClose()
     }

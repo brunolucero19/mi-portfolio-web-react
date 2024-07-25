@@ -34,7 +34,7 @@ const Projects = () => {
             },
             images: {
                 'Todos': 'url(../img/gallery1.jpg)',
-                'Diseño UI' : 'url(../img/gallery6.jpg)',
+                'Diseño UI' : 'url(../img/gallery6.webp)',
                 'Páginas Web' : 'url(../img/gallery1.jpg)',
             }
         },
@@ -51,9 +51,9 @@ const Projects = () => {
                 'Páginas Web': 'https://github.com/brunolucero19/mi-portfolio-web-react',
             },
             images: {
-                'Todos': 'url(../img/gallery4.jpg)',
+                'Todos': 'url(../img/gallery4.webp)',
                 'Diseño UI' : 'url(../img/gallery2.jpg)',
-                'Páginas Web' : 'url(../img/gallery4.jpg)',
+                'Páginas Web' : 'url(../img/gallery4.webp)',
             }
         },
         {
@@ -69,9 +69,9 @@ const Projects = () => {
                 'Páginas Web': 'https://github.com/brunolucero19/mi-portfolio-web-html-y-css',
             },
             images: {
-                'Todos': 'url(../img/gallery6.jpg)',
+                'Todos': 'url(../img/gallery6.webp)',
                 'Diseño UI' : 'url(../img/gallery7.jpg)',
-                'Páginas Web' : 'url(../img/gallery5.jpg)',
+                'Páginas Web' : 'url(../img/gallery5.webp)',
             }
         },
         {
@@ -88,7 +88,7 @@ const Projects = () => {
             },
             images: {
                 'Todos': 'url(../img/gallery2.jpg)',
-                'Diseño UI' : 'url(../img/gallery5.jpg)',
+                'Diseño UI' : 'url(../img/gallery5.webp)',
                 'Páginas Web' : 'url(../img/gallery8.jpg)',
             }
         },
@@ -106,7 +106,7 @@ const Projects = () => {
             },
             images: {
                 'Todos': 'url(../img/gallery7.jpg)',
-                'Diseño UI' : 'url(../img/gallery4.jpg)',
+                'Diseño UI' : 'url(../img/gallery4.webp)',
                 'Páginas Web' : 'url(../img/gallery2.jpg)',
             }
         },
@@ -123,9 +123,9 @@ const Projects = () => {
                 'Páginas Web': 'https://github.com/brunolucero19/ta-te-ti',
             },
             images: {
-                'Todos': 'url(../img/gallery5.jpg)',
+                'Todos': 'url(../img/gallery5.webp)',
                 'Diseño UI' : 'url(../img/gallery8.jpg)',
-                'Páginas Web' : 'url(../img/gallery3.jpg)',
+                'Páginas Web' : 'url(../img/gallery3.webp)',
             }
         },
         {
@@ -141,9 +141,9 @@ const Projects = () => {
                 'Páginas Web': '#',
             },
             images: {
-                'Todos': 'url(../img/gallery3.jpg)',
+                'Todos': 'url(../img/gallery3.webp)',
                 'Diseño UI' : 'url(../img/gallery1.jpg)',
-                'Páginas Web' : 'url(../img/gallery6.jpg)',
+                'Páginas Web' : 'url(../img/gallery6.webp)',
             }
         },
         {
@@ -160,7 +160,7 @@ const Projects = () => {
             },
             images: {
                 'Todos': 'url(../img/gallery8.jpg)',
-                'Diseño UI' : 'url(../img/gallery3.jpg)',
+                'Diseño UI' : 'url(../img/gallery3.webp)',
                 'Páginas Web' : 'url(../img/gallery7.jpg)',
             }
         },
@@ -194,7 +194,7 @@ const Projects = () => {
             <Text p='10px' fontSize='14px' color='#00000099' lineHeight='1.5' mb='25px'>
                 En ésta sección puedes ver mis proyectos más destacados, puedes filtrarlos por proyectos de diseño UI o por proyectos basados en páginas web.
             </Text>
-            <Flex alignItems='center' justifyContent='center' gap='20px' mb='32px'>
+            <Flex alignItems='center' justifyContent='center' gap='10px' mb='32px'>
                 <Button sx={activeCategory === 'Todos' ? {...buttonStyles, ...activeButtonStyles} : buttonStyles} onClick={() => filterProjects('Todos')}>
                     Todos
                 </Button>
@@ -205,7 +205,7 @@ const Projects = () => {
                     Páginas Web
                 </Button>
             </Flex>
-            <SimpleGrid columns={columns} row={6} spacing='20px' height={{ base: '60vh', md: '70vh', '2xl':'80vh' }} width={{ base: '80%', '2xl': '70%' }}>
+            <SimpleGrid columns={columns} row={6} spacing='20px' height={{ base: '70vh', '2xl':'80vh' }} width={{ base: '80%', '2xl': '70%' }}>
             {displayedProjects.map((project, index) => (
                 <Box
                     key={project.id}
@@ -217,7 +217,7 @@ const Projects = () => {
                     position="relative"
                     _hover={{ transform: 'scale(1.1)', transition: 'transform 1s' }}
                     boxShadow="0 4px 8px rgba(0,0,0,0.3)"
-                    height={isMobile? '130px' : 'auto'}
+                    height='auto'
                 >
                     <Box
                     position="absolute"
