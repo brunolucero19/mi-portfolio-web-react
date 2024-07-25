@@ -1,4 +1,4 @@
-import { Box, Flex, Link, Image, Text } from "@chakra-ui/react"
+import { Box, Flex, Link, Image, Text, useBreakpointValue } from "@chakra-ui/react"
 import {Link as ScrollLink} from 'react-scroll'
 
 const Footer = () => {
@@ -10,6 +10,8 @@ const Footer = () => {
         { to: 'proyectos', label: 'Proyectos' },
         { to: 'experiencia', label: 'Experiencia' },
     ]
+
+    const offset = useBreakpointValue({base: -40, md: 20})
 
     return(
         <Box as="footer" p={{ base: '40px 30px', md: '40px 120px' }}>
@@ -30,7 +32,7 @@ const Footer = () => {
             <Flex alignItems='center' justifyContent='center' gap='30px' wrap="wrap" p='40px'>
                 {links.map((link,index) => (
                     <Box key={index} sx={{_hover: {color: 'brand.primary', textDecoration:'underline', cursor:'pointer'}, fontWeight:'600'}}>
-                    <ScrollLink to={link.to} smooth={true} duration={700}>
+                    <ScrollLink to={link.to} smooth={true} duration={700} offset={offset}>
                         {link.label}
                     </ScrollLink>
                     </Box>
