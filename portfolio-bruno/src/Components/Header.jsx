@@ -1,10 +1,13 @@
-import {Box, Flex} from '@chakra-ui/react'
+import {Box, Flex, useColorMode, IconButton} from '@chakra-ui/react'
 import {Link as ScrollLink} from 'react-scroll'
 import CustomMenu from './CustomMenu'
 import PropTypes from 'prop-types'
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 
 const Header = ({isModalOpen}) => {
+    const {colorMode, toggleColorMode} = useColorMode()
+    
     const linkStyles = {
         fontWeight: '500',
         borderRadius: '10px',
@@ -15,7 +18,7 @@ const Header = ({isModalOpen}) => {
         cursor: 'pointer',
         _hover: { backgroundColor: '#fdc964', textDecoration: 'underline' }  // Estilo de hover
     };
-
+    
     const links = [
         { to: 'inicio', label: 'Inicio' },
         { to: 'about', label: 'Sobre Mí' },
@@ -31,8 +34,10 @@ const Header = ({isModalOpen}) => {
         top: isModalOpen ? 'auto' : { base: '0', md: 'auto' }, 
         width: '100%',
         zIndex: isModalOpen ? 'auto' : { base: '1000', md: 'auto' },
-        bg: isModalOpen ? 'transparent' : 'white'
+        bg: isModalOpen ? 'transparent' : colorMode === 'light' ? 'white' : '#171716'
     }
+
+    
 
     return(
         <Box as='header' sx={headerStyles}>
@@ -47,9 +52,18 @@ const Header = ({isModalOpen}) => {
                         </Box>
                     ))}
                 </Flex>
+                <IconButton 
+                    onClick={toggleColorMode} 
+                    icon={colorMode === 'light' ? <MoonIcon /> : <SunIcon />} 
+                    bg='transparent'
+                    _hover={{ bg: 'transparent'}}
+                    fontSize='20px'
+                    aria-label='Cambiar modo'
+                />
                 <Box display={{base:'block', md:'none'}}>
                         <CustomMenu></CustomMenu>
                 </Box>
+                
             </Flex>
         </Box>
 

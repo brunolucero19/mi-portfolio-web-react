@@ -10,7 +10,8 @@ const Hero = ({onModalOpen, onModalClose}) => {
         fontWeight: '700',
         padding: '10px',
         _hover: { textDecoration: 'underline'},
-        _focus: { bgColor: 'brand.primary'}
+        _focus: { bgColor: 'brand.primary'},
+        color: '#171716'
     }
 
     return (

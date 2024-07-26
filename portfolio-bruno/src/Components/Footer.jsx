@@ -1,4 +1,4 @@
-import { Box, Flex, Link, Image, Text, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Flex, Link, Image, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react"
 import {Link as ScrollLink} from 'react-scroll'
 
 const Footer = () => {
@@ -13,12 +13,14 @@ const Footer = () => {
 
     const offset = useBreakpointValue({base: -40, md: 20})
 
+    const gitHubIcon = useColorModeValue('../icons/github-light.svg', '../icons/github-dark.svg')
+
     return(
         <Box as="footer" p={{ base: '40px 30px', md: '40px 120px' }}>
             <Flex alignItems='center' justifyContent='center' gap='40px'>
                 <Link target="_blank" href="https://github.com/brunolucero19">
                     <Flex flexDirection='column' alignItems='center'>
-                        <Image src="../icons/github.svg" alt="GitHub" w='48px' h='48px'></Image>
+                        <Image src={gitHubIcon} alt="GitHub" w='48px' h='48px'></Image>
                         <Text fontSize='12px'>GitHub</Text>
                     </Flex>
                 </Link>

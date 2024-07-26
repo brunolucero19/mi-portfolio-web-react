@@ -1,4 +1,4 @@
-import {Box, Heading, Text, VStack, Icon, Flex} from '@chakra-ui/react'
+import {Box, Heading, Text, VStack, Icon, Flex, useColorModeValue} from '@chakra-ui/react'
 import Title from './Title';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faGitAlt, faJsSquare, faReact, faNodeJs, faJava, faBootstrap } from '@fortawesome/free-brands-svg-icons';
@@ -62,11 +62,13 @@ const MySkills = () => {
             backgroundColor: 'rgb(186, 126, 255)',
         },
         ];
+
+        const colorText = useColorModeValue('#00000099','white')
     
         return (
             <Box as="section" id="myskills" p={{ base: '40px 40px', md: '40px 120px' }} textAlign="center">
                 <Title text="Habilidades" subrayado="Mis"></Title>
-                <Text p="20px" fontSize="14px" color="#00000099" lineHeight="1.5" mb="25px">
+                <Text p="20px" fontSize="14px" color={colorText} lineHeight="1.5" mb="25px">
                     Actualmente tengo conocimientos en las siguientes tecnologías. Mi objetivo es profundizar mis conocimientos en éstas y aprender nuevas tecnologías que me permitan seguir formándome como desarrollador.
                 </Text>
                 <Flex wrap="wrap" justifyContent="center" gap='15px'>
@@ -81,8 +83,8 @@ const MySkills = () => {
                     width={{ base: '90%', sm:'45%', lg:'30%', '2xl': '20%' }}
                     >
                     <VStack align="start" height="100%">
-                        <Icon as={FontAwesomeIcon} icon={skill.icon} fontSize='32px' />
-                        <Heading as="h3" size="md" fontSize='18px' fontWeight='700'>
+                        <Icon as={FontAwesomeIcon} icon={skill.icon} fontSize='32px' color='black' />
+                        <Heading as="h3" size="md" fontSize='18px' fontWeight='700' color='black'>
                         {skill.title}
                         </Heading>
                         <Text fontSize='14px' color="rgba(0,0,0,0.8)">

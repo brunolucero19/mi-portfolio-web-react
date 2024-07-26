@@ -1,11 +1,14 @@
 import { useState } from "react"
-import { Box, Text, Flex, Button, Link, SimpleGrid, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Text, Flex, Button, Link, SimpleGrid, useBreakpointValue, useColorModeValue } from "@chakra-ui/react"
 import Title from "./Title"
 
 const Projects = () => {
+    
+    const buttonColor = useColorModeValue('rgba(0,0,0,0.6)', 'white')
+    
     const buttonStyles = {
         background : 'none',
-        color: 'rgba(0,0,0,0.6)',
+        color: buttonColor,
         fontSize: '16px',
         padding: '10px 16px',
         transition: 'color 0.3s',
@@ -188,10 +191,12 @@ const Projects = () => {
         }
     };
 
+    const colorText = useColorModeValue('#00000099','white')
+
     return (
         <Box as="section" id="proyectos" textAlign='center' p={{ base: '40px 40px', md: '40px 120px' }} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='destacados' subrayado='Proyectos'></Title>
-            <Text p='10px' fontSize='14px' color='#00000099' lineHeight='1.5' mb='25px'>
+            <Text p='10px' fontSize='14px' color={colorText} lineHeight='1.5' mb='25px'>
                 En ésta sección puedes ver mis proyectos más destacados, puedes filtrarlos por proyectos de diseño UI o por proyectos basados en páginas web.
             </Text>
             <Flex alignItems='center' justifyContent='center' gap='10px' mb='32px'>
