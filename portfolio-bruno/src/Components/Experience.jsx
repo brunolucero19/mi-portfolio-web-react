@@ -3,9 +3,9 @@ import Title from "./Title"
 
 const Experience = () => {
     
-    const boxBgColor = useColorModeValue('white', 'dark');
+    
     const boxShadow = useColorModeValue('0 4px 8px rgba(0, 0, 0, 0.3)', '0 4px 8px rgba(255, 255, 255, 0.2)')
-    const borderStyle = useColorModeValue('3px solid transparent', '1px solid white')
+    const borderStyle = useColorModeValue('3px solid transparent', '2px solid white')
 
     const boxStyles = {
         border: borderStyle,
@@ -14,11 +14,11 @@ const Experience = () => {
         boxShadow: boxShadow,
         transition: 'background-color 0.3s',
         _hover: {bgColor: 'rgb(254, 214, 138)', color: 'black'},
-        bgColor: boxBgColor
     }
     const textStyles = {
         fontSize: '11px',
         color: useColorModeValue('rgba(0,0,0,0.6)','white'),
+        _hover: {color: 'rgba(0,0,0,0.6)'},
         padding: '5px'
     }
     const h3Styles = {

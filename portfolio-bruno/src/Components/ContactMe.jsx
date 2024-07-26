@@ -12,7 +12,6 @@ const ContactMe = ({onModalOpen, onModalClose}) => {
         fontWeight: '700',
         padding: '20px',
         _hover: { textDecoration: 'underline'},
-        fontSize: '12px',
         _focus: { bgColor: bgColor}
     }
 

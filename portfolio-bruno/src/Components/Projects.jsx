@@ -196,7 +196,7 @@ const Projects = () => {
     return (
         <Box as="section" id="proyectos" textAlign='center' p={{ base: '40px 40px', md: '40px 120px' }} display='flex' flexDirection='column' alignItems='center' justifyContent='center'>
             <Title text='destacados' subrayado='Proyectos'></Title>
-            <Text p='10px' fontSize='14px' color={colorText} lineHeight='1.5' mb='25px'>
+            <Text p='20px' fontSize='14px' color={colorText} lineHeight='1.5' mb='25px'>
                 En ésta sección puedes ver mis proyectos más destacados, puedes filtrarlos por proyectos de diseño UI o por proyectos basados en páginas web.
             </Text>
             <Flex alignItems='center' justifyContent='center' gap='10px' mb='32px'>

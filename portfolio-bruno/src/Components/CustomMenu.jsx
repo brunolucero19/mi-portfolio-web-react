@@ -29,7 +29,7 @@ const CustomMenu = () => {
         padding: '13px',
         _hover: {bgColor: 'transparent', color: 'brand.primary', fontWeight:'500'},
         _focus: { bgColor: 'transparent' },
-        border: "1px solid",
+        border: "2px solid",
         borderColor: 'brand.primary',
         fontWeight: '500'
     }
